@@ -50,8 +50,7 @@
  *
 */
 // Import cyberpunk utilities
-@import '05-utilities/cyberpunk-mixins';
-@import '05-utilities/cyberpunk-animations';
+
 
 @import './01-settings/tailwind';
 @import './01-settings/fonts';
@@ -87,7 +86,14 @@
 @import './04-components/virtooal';
 @import './04-components/landing-page';
 @import './04-components/filters';
+// Components
+@import '04-components/buttons';
+@import '04-components/forms';
+@import '04-components/modal';
+@import '04-components/hero-section';
 
+@import '05-utilities/cyberpunk-mixins';
+@import '05-utilities/cyberpunk-animations';
 @import './05-utilities/chat-bots';
 @import './05-utilities/swal';
 @import './05-utilities/safari-fixes';

@@ -1,0 +1,558 @@
+// Cyberpunk Neon Theme - Animations and Effects
+
+// Neon pulse animation
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow-blue);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--color-glow-blue), 0 0 30px var(--color-glow-blue);
+  }
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s infinite;
+}
+
+.animate-neon-pulse-blue {
+  animation: neonPulseBlue 2s infinite;
+}
+
+@keyframes neonPulseBlue {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow-blue);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--color-glow-blue), 0 0 30px var(--color-glow-blue);
+  }
+}
+
+.animate-neon-pulse-purple {
+  animation: neonPulsePurple 2s infinite;
+}
+
+@keyframes neonPulsePurple {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow-purple);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--color-glow-purple), 0 0 30px var(--color-glow-purple);
+  }
+}
+
+.animate-neon-pulse-pink {
+  animation: neonPulsePink 2s infinite;
+}
+
+@keyframes neonPulsePink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow-pink);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--color-glow-pink), 0 0 30px var(--color-glow-pink);
+  }
+}
+
+.animate-neon-pulse-green {
+  animation: neonPulseGreen 2s infinite;
+}
+
+@keyframes neonPulseGreen {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow-green);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--color-glow-green), 0 0 30px var(--color-glow-green);
+  }
+}
+
+// Text glow animation
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-glow-blue);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-glow-blue), 0 0 20px var(--color-glow-blue);
+  }
+}
+
+.animate-text-glow {
+  animation: textGlow 2s infinite;
+}
+
+.animate-text-glow-blue {
+  animation: textGlowBlue 2s infinite;
+}
+
+@keyframes textGlowBlue {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-glow-blue);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-glow-blue), 0 0 20px var(--color-glow-blue);
+  }
+}
+
+.animate-text-glow-purple {
+  animation: textGlowPurple 2s infinite;
+}
+
+@keyframes textGlowPurple {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-glow-purple);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-glow-purple), 0 0 20px var(--color-glow-purple);
+  }
+}
+
+.animate-text-glow-pink {
+  animation: textGlowPink 2s infinite;
+}
+
+@keyframes textGlowPink {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-glow-pink);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-glow-pink), 0 0 20px var(--color-glow-pink);
+  }
+}
+
+.animate-text-glow-green {
+  animation: textGlowGreen 2s infinite;
+}
+
+@keyframes textGlowGreen {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-glow-green);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-glow-green), 0 0 20px var(--color-glow-green);
+  }
+}
+
+// Glitch effect animation
+@keyframes glitchEffect {
+  0%, 100% { 
+    transform: translate(0); 
+    text-shadow: 0 0 0 transparent;
+  }
+  20% { 
+    transform: translate(-3px, 3px); 
+    text-shadow: -3px 3px 0 var(--color-neon-blue);
+  }
+  40% { 
+    transform: translate(-3px, -3px); 
+    text-shadow: -3px -3px 0 var(--color-neon-purple);
+  }
+  60% { 
+    transform: translate(3px, 3px); 
+    text-shadow: 3px 3px 0 var(--color-neon-pink);
+  }
+  80% { 
+    transform: translate(3px, -3px); 
+    text-shadow: 3px -3px 0 var(--color-neon-green);
+  }
+}
+
+.animate-glitch {
+  animation: glitchEffect 0.5s ease-in-out infinite;
+}
+
+.animate-glitch-hover:hover {
+  animation: glitchEffect 0.5s ease-in-out infinite;
+}
+
+// Scanline animation
+@keyframes scanline {
+  0% { 
+    transform: translateY(-100%); 
+  }
+  100% { 
+    transform: translateY(100%); 
+  }
+}
+
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 51%,
+      transparent 51%
+    );
+    background-size: 100% 4px;
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+.scanline-effect-subtle {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 51%,
+      transparent 51%
+    );
+    background-size: 100% 2px;
+    animation: scanline 12s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+// Border gradient animation
+@keyframes borderGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.border-gradient-animate {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(
+      90deg, 
+      var(--color-neon-blue), 
+      var(--color-neon-purple), 
+      var(--color-neon-pink), 
+      var(--color-neon-green), 
+      var(--color-neon-blue)
+    ) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    background-size: 300% 100%;
+    animation: borderGradientFlow 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// Flicker animation
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41.99% { opacity: 1; }
+  42% { opacity: 0.8; }
+  43% { opacity: 1; }
+  45.99% { opacity: 1; }
+  46% { opacity: 0.4; }
+  46.9% { opacity: 1; }
+  51.99% { opacity: 1; }
+  52% { opacity: 0.9; }
+  52.8% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 5s linear infinite;
+}
+
+// Typing cursor animation
+@keyframes typingCursor {
+  0%, 100% { border-right-color: var(--color-neon-blue); }
+  50% { border-right-color: transparent; }
+}
+
+.typing-cursor {
+  border-right: 2px solid var(--color-neon-blue);
+  animation: typingCursor 1s step-end infinite;
+}
+
+// Hover glow effect
+.hover-glow {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--color-glow-blue);
+  }
+}
+
+.hover-glow-blue {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--color-glow-blue);
+  }
+}
+
+.hover-glow-purple {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--color-glow-purple);
+  }
+}
+
+.hover-glow-pink {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--color-glow-pink);
+  }
+}
+
+.hover-glow-green {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--color-glow-green);
+  }
+}
+
+// Text hover glow effect
+.hover-text-glow {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    text-shadow: 0 0 10px var(--color-glow-blue);
+  }
+}
+
+.hover-text-glow-blue {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 10px var(--color-glow-blue);
+  }
+}
+
+.hover-text-glow-purple {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--color-neon-purple);
+    text-shadow: 0 0 10px var(--color-glow-purple);
+  }
+}
+
+.hover-text-glow-pink {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 10px var(--color-glow-pink);
+  }
+}
+
+.hover-text-glow-green {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 10px var(--color-glow-green);
+  }
+}
+
+// Floating animation
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+// Rotating animation
+@keyframes rotating {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-rotating {
+  animation: rotating 10s linear infinite;
+}
+
+// Shine effect
+@keyframes shine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+}
+
+// Data corruption effect
+@keyframes dataCorruption {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  5% { clip-path: inset(33% 0 66% 0); }
+  10% { clip-path: inset(50% 0 50% 0); }
+  15% { clip-path: inset(25% 0 75% 0); }
+  20% { clip-path: inset(75% 0 25% 0); }
+  25% { clip-path: inset(0 0 0 0); }
+  30% { clip-path: inset(0 0 0 0); }
+  45% { clip-path: inset(0 0 0 0); }
+  50% { clip-path: inset(45% 0 55% 0); }
+  55% { clip-path: inset(50% 0 50% 0); }
+  60% { clip-path: inset(0 0 0 0); }
+  75% { clip-path: inset(0 0 0 0); }
+  80% { clip-path: inset(15% 0 85% 0); }
+  85% { clip-path: inset(25% 0 75% 0); }
+  90% { clip-path: inset(85% 0 15% 0); }
+  95% { clip-path: inset(0 0 0 0); }
+}
+
+.data-corruption-effect {
+  position: relative;
+  
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-glow-blue);
+    animation: dataCorruption 3s infinite;
+  }
+}
+
+// Cyberpunk grid background
+.cyberpunk-grid-bg {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(to right, rgba(var(--color-neon-blue-rgb), 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--color-neon-blue-rgb), 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+// Hologram effect
+.hologram-effect {
+  position: relative;
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 5px var(--color-glow-blue);
+  opacity: 0.8;
+  
+  &::before, &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+  }
+  
+  &::before {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 5px var(--color-glow-pink);
+    transform: translateX(-2px);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  
+  &::after {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-glow-blue);
+    transform: translateX(2px);
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+}
+
+// Loading bar animation
+@keyframes loadingBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.loading-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-dark-bg-tertiary);
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(
+      90deg,
+      var(--color-neon-blue),
+      var(--color-neon-purple),
+      var(--color-neon-pink),
+      var(--color-neon-green)
+    );
+    background-size: 300% 100%;
+    animation: loadingBar 2s linear infinite, borderGradientFlow 6s linear infinite;
+  }
+}

@@ -1,0 +1,283 @@
+// Cyberpunk Neon Theme - SCSS Mixins for Neon Effects
+
+// Mixin for neon text glow
+@mixin neon-text($color, $glow-color) {
+  color: $color;
+  text-shadow: 0 0 5px $glow-color,
+               0 0 10px $glow-color,
+               0 0 15px $glow-color;
+}
+
+// Mixin for neon border glow
+@mixin neon-border($color, $glow-color, $width: 1px) {
+  border: $width solid $color;
+  box-shadow: 0 0 5px $glow-color,
+              0 0 10px $glow-color;
+}
+
+// Mixin for neon box glow
+@mixin neon-box($glow-color) {
+  box-shadow: 0 0 7px $glow-color,
+              0 0 10px $glow-color,
+              0 0 21px $glow-color;
+}
+
+// Mixin for cyberpunk gradient text
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// Mixin for scanline effect
+@mixin scanline-effect($opacity: 0.15, $speed: 8s) {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(255, 255, 255, $opacity) 51%,
+      transparent 51%
+    );
+    background-size: 100% 4px;
+    animation: scanline $speed linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+// Mixin for glitch effect
+@mixin glitch-effect($intensity: 5px) {
+  position: relative;
+  
+  &:hover {
+    animation: glitchEffect 0.5s ease-in-out infinite;
+  }
+  
+  @keyframes glitchEffect {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-#{$intensity}, #{$intensity}); }
+    40% { transform: translate(-#{$intensity}, -#{$intensity}); }
+    60% { transform: translate(#{$intensity}, #{$intensity}); }
+    80% { transform: translate(#{$intensity}, -#{$intensity}); }
+  }
+}
+
+// Mixin for cyberpunk card
+@mixin cyberpunk-card($bg-color, $border-color, $glow-color) {
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $glow-color, transparent);
+  }
+  
+  &:hover {
+    @include neon-border($border-color, $glow-color);
+  }
+}
+
+// Mixin for cyberpunk button
+@mixin cyberpunk-button($bg-color, $text-color, $glow-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $text-color;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: all 0.6s ease;
+  }
+  
+  &:hover {
+    box-shadow: 0 0 10px $glow-color;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+}
+
+// Mixin for futuristic input
+@mixin cyberpunk-input($bg-color, $border-color, $glow-color) {
+  background-color: rgba($bg-color, 0.2);
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    @include neon-border($border-color, $glow-color);
+  }
+}
+
+// Dark mode utilities
+@mixin dark-mode {
+  background-color: var(--color-dark-bg-primary);
+  color: var(--color-text-primary);
+}
+
+// Utility classes based on mixins
+.text-neon-blue {
+  @include neon-text(var(--color-neon-blue), var(--color-glow-blue));
+}
+
+.text-neon-purple {
+  @include neon-text(var(--color-neon-purple), var(--color-glow-purple));
+}
+
+.text-neon-pink {
+  @include neon-text(var(--color-neon-pink), var(--color-glow-pink));
+}
+
+.text-neon-green {
+  @include neon-text(var(--color-neon-green), var(--color-glow-green));
+}
+
+.border-neon-blue {
+  @include neon-border(var(--color-neon-blue), var(--color-glow-blue));
+}
+
+.border-neon-purple {
+  @include neon-border(var(--color-neon-purple), var(--color-glow-purple));
+}
+
+.border-neon-pink {
+  @include neon-border(var(--color-neon-pink), var(--color-glow-pink));
+}
+
+.border-neon-green {
+  @include neon-border(var(--color-neon-green), var(--color-glow-green));
+}
+
+.box-neon-blue {
+  @include neon-box(var(--color-glow-blue));
+}
+
+.box-neon-purple {
+  @include neon-box(var(--color-glow-purple));
+}
+
+.box-neon-pink {
+  @include neon-box(var(--color-glow-pink));
+}
+
+.box-neon-green {
+  @include neon-box(var(--color-glow-green));
+}
+
+.gradient-text-blue-purple {
+  @include gradient-text(var(--gradient-blue-purple));
+}
+
+.gradient-text-purple-pink {
+  @include gradient-text(var(--gradient-purple-pink));
+}
+
+.gradient-text-pink-blue {
+  @include gradient-text(var(--gradient-pink-blue));
+}
+
+.gradient-text-green-blue {
+  @include gradient-text(var(--gradient-green-blue));
+}
+
+.scanline {
+  @include scanline-effect();
+}
+
+.glitch {
+  @include glitch-effect();
+}
+
+// Apply dark mode by default for cyberpunk theme
+body {
+  @include dark-mode();
+}
+
+// Cyberpunk card variations
+.card-cyberpunk-blue {
+  @include cyberpunk-card(var(--color-dark-bg-tertiary), var(--color-neon-blue), var(--color-glow-blue));
+}
+
+.card-cyberpunk-purple {
+  @include cyberpunk-card(var(--color-dark-bg-tertiary), var(--color-neon-purple), var(--color-glow-purple));
+}
+
+.card-cyberpunk-pink {
+  @include cyberpunk-card(var(--color-dark-bg-tertiary), var(--color-neon-pink), var(--color-glow-pink));
+}
+
+.card-cyberpunk-green {
+  @include cyberpunk-card(var(--color-dark-bg-tertiary), var(--color-neon-green), var(--color-glow-green));
+}
+
+// Cyberpunk button variations
+.btn-cyberpunk-blue {
+  @include cyberpunk-button(var(--color-dark-bg-secondary), var(--color-neon-blue), var(--color-glow-blue));
+}
+
+.btn-cyberpunk-purple {
+  @include cyberpunk-button(var(--color-dark-bg-secondary), var(--color-neon-purple), var(--color-glow-purple));
+}
+
+.btn-cyberpunk-pink {
+  @include cyberpunk-button(var(--color-dark-bg-secondary), var(--color-neon-pink), var(--color-glow-pink));
+}
+
+.btn-cyberpunk-green {
+  @include cyberpunk-button(var(--color-dark-bg-secondary), var(--color-neon-green), var(--color-glow-green));
+}
+
+// Cyberpunk input variations
+.input-cyberpunk-blue {
+  @include cyberpunk-input(var(--color-dark-bg-secondary), var(--color-neon-blue), var(--color-glow-blue));
+}
+
+.input-cyberpunk-purple {
+  @include cyberpunk-input(var(--color-dark-bg-secondary), var(--color-neon-purple), var(--color-glow-purple));
+}
+
+.input-cyberpunk-pink {
+  @include cyberpunk-input(var(--color-dark-bg-secondary), var(--color-neon-pink), var(--color-glow-pink));
+}
+
+.input-cyberpunk-green {
+  @include cyberpunk-input(var(--color-dark-bg-secondary), var(--color-neon-green), var(--color-glow-green));
+}

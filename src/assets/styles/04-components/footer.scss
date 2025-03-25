@@ -1,49 +1,254 @@
+// Cyberpunk Neon Theme - Footer Component
 
-.store-footer {
-  @apply relative bg-darker text-white mt-8 sm:mt-16;
-
-  a{
-    @apply transition-opacity hover:opacity-75;
+// Footer wrapper
+.footer-wrapper {
+  background-color: var(--color-dark-bg-secondary);
+  border-top: 1px solid var(--color-border-light);
+  position: relative;
+  padding: 3rem 0 1rem;
+  
+  // Neon border at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-purple-pink);
+    box-shadow: 0 0 10px var(--color-glow-purple);
   }
+}
 
-  &__inner{
-    @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
-  }  
-
-  h3{
-    @apply text-lg font-bold mb-3 lg:mb-5;
-  }
-
-  .social-link {
-    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm
-  }
-
-  .contact-social{
-    @apply mt-5 pt-5 border-t border-white/10;
-
-    ul {
-      @apply mb-0;
-    }
-  }
-
-  .footer-is-light & {
-    @apply bg-gray-50 text-gray-700;
-
-    .store-footer__inner {
-      @apply bg-gray-100 border-b-gray-200;
-    }
-
-    .social-link {
-      @apply border-gray-300;
-    }
-
-    .contact-social{
-      @apply border-gray-100;
+// Footer logo
+.footer-logo {
+  margin-bottom: 1.5rem;
+  
+  img {
+    filter: drop-shadow(0 0 5px var(--color-glow-purple));
+    transition: filter 0.3s ease;
+    
+    &:hover {
+      filter: drop-shadow(0 0 10px var(--color-glow-pink));
     }
   }
 }
 
+// Footer about text
+.footer-about {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  max-width: 300px;
+}
 
-.copyright-text p{
-  @apply text-gray-700;
+// Footer social links
+.footer-social {
+  display: flex;
+  margin-bottom: 2rem;
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-dark-bg-tertiary);
+    color: var(--color-text-primary);
+    margin-right: 0.75rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: var(--color-dark-bg-primary);
+      color: var(--color-neon-purple);
+      box-shadow: 0 0 10px var(--color-glow-purple);
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// Footer widget
+.footer-widget {
+  margin-bottom: 2rem;
+  
+  .widget-title {
+    @include gradient-text(var(--gradient-purple-pink));
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--gradient-purple-pink);
+      box-shadow: 0 0 5px var(--color-glow-purple);
+    }
+  }
+  
+  .widget-content {
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.75rem;
+        
+        a {
+          color: var(--color-text-secondary);
+          transition: all 0.3s ease;
+          position: relative;
+          padding-left: 15px;
+          
+          &::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-neon-purple);
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover {
+            color: var(--color-neon-purple);
+            text-shadow: 0 0 5px var(--color-glow-purple);
+            
+            &::before {
+              transform: translateX(3px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Contact info
+.contact-info {
+  .contact-item {
+    display: flex;
+    margin-bottom: 1rem;
+    
+    .contact-icon {
+      color: var(--color-neon-purple);
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-text {
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+// Newsletter form
+.newsletter-form {
+  position: relative;
+  margin-top: 1.5rem;
+  
+  .newsletter-input {
+    @include cyberpunk-input(var(--color-dark-bg-tertiary), var(--color-neon-purple), var(--color-glow-purple));
+    padding-right: 3.5rem;
+    width: 100%;
+    
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+  
+  .newsletter-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 1rem;
+    background: var(--gradient-purple-pink);
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 0 10px var(--color-glow-pink);
+    }
+  }
+}
+
+// Footer bottom
+.footer-bottom {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  
+  .copyright {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    
+    a {
+      color: var(--color-neon-blue);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: var(--color-neon-purple);
+        text-shadow: 0 0 5px var(--color-glow-purple);
+      }
+    }
+  }
+  
+  .footer-bottom-links {
+    display: flex;
+    justify-content: flex-end;
+    
+    a {
+      color: var(--color-text-secondary);
+      margin-left: 1.5rem;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: var(--color-neon-blue);
+        text-shadow: 0 0 5px var(--color-glow-blue);
+      }
+    }
+  }
+}
+
+// Back to top button
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-dark-bg-tertiary);
+  color: var(--color-neon-green);
+  border: 1px solid var(--color-neon-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99;
+  box-shadow: 0 0 5px var(--color-glow-green);
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &:hover {
+    background-color: var(--color-dark-bg-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px var(--color-glow-green), 0 0 20px var(--color-glow-green);
+  }
 }

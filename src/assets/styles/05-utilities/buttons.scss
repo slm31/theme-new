@@ -1,0 +1,384 @@
+// Cyberpunk Neon Theme - Buttons Component
+
+// Base button styles
+.btn,
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  // Shine effect on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  // Icon spacing
+  i, svg {
+    margin-right: 0.5rem;
+    
+    &:only-child {
+      margin-right: 0;
+    }
+  }
+  
+  // Disabled state
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+    box-shadow: none;
+  }
+}
+
+// Primary button - Neon Blue
+.btn-primary {
+  background-color: var(--color-dark-bg-secondary);
+  color: var(--color-neon-blue);
+  border-color: var(--color-neon-blue);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px var(--color-glow-blue), 0 0 20px var(--color-glow-blue);
+  }
+}
+
+// Secondary button - Neon Purple
+.btn-secondary {
+  background-color: var(--color-dark-bg-secondary);
+  color: var(--color-neon-purple);
+  border-color: var(--color-neon-purple);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-neon-purple);
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px var(--color-glow-purple), 0 0 20px var(--color-glow-purple);
+  }
+}
+
+// Success button - Neon Green
+.btn-success {
+  background-color: var(--color-dark-bg-secondary);
+  color: var(--color-neon-green);
+  border-color: var(--color-neon-green);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-neon-green);
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px var(--color-glow-green), 0 0 20px var(--color-glow-green);
+  }
+}
+
+// Danger button - Neon Pink
+.btn-danger {
+  background-color: var(--color-dark-bg-secondary);
+  color: var(--color-neon-pink);
+  border-color: var(--color-neon-pink);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-neon-pink);
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px var(--color-glow-pink), 0 0 20px var(--color-glow-pink);
+  }
+}
+
+// Warning button - Neon Yellow
+.btn-warning {
+  background-color: var(--color-dark-bg-secondary);
+  color: #FFCC00;
+  border-color: #FFCC00;
+  
+  &:hover, &:focus, &:active {
+    background-color: #FFCC00;
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.7), 0 0 20px rgba(255, 204, 0, 0.7);
+  }
+}
+
+// Info button - Light Blue
+.btn-info {
+  background-color: var(--color-dark-bg-secondary);
+  color: #00CCFF;
+  border-color: #00CCFF;
+  
+  &:hover, &:focus, &:active {
+    background-color: #00CCFF;
+    color: var(--color-dark-bg-primary);
+    box-shadow: 0 0 10px rgba(0, 204, 255, 0.7), 0 0 20px rgba(0, 204, 255, 0.7);
+  }
+}
+
+// Light button
+.btn-light {
+  background-color: var(--color-dark-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-light);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-dark-bg-secondary);
+    color: var(--color-text-primary);
+    border-color: var(--color-text-secondary);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Dark button
+.btn-dark {
+  background-color: var(--color-dark-bg-primary);
+  color: var(--color-text-primary);
+  border-color: var(--color-dark-bg-tertiary);
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--color-dark-bg-tertiary);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Outline buttons
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--color-neon-blue);
+  border-color: var(--color-neon-blue);
+  
+  &:hover, &:focus, &:active {
+    background-color: rgba(0, 240, 255, 0.1);
+    color: var(--color-neon-blue);
+    box-shadow: 0 0 10px var(--color-glow-blue);
+  }
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  color: var(--color-neon-purple);
+  border-color: var(--color-neon-purple);
+  
+  &:hover, &:focus, &:active {
+    background-color: rgba(191, 0, 255, 0.1);
+    color: var(--color-neon-purple);
+    box-shadow: 0 0 10px var(--color-glow-purple);
+  }
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  color: var(--color-neon-green);
+  border-color: var(--color-neon-green);
+  
+  &:hover, &:focus, &:active {
+    background-color: rgba(0, 255, 158, 0.1);
+    color: var(--color-neon-green);
+    box-shadow: 0 0 10px var(--color-glow-green);
+  }
+}
+
+.btn-outline-danger {
+  background-color: transparent;
+  color: var(--color-neon-pink);
+  border-color: var(--color-neon-pink);
+  
+  &:hover, &:focus, &:active {
+    background-color: rgba(255, 0, 184, 0.1);
+    color: var(--color-neon-pink);
+    box-shadow: 0 0 10px var(--color-glow-pink);
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+// Button with gradient background
+.btn-gradient-blue-purple {
+  background: var(--gradient-blue-purple);
+  color: var(--color-text-primary);
+  border: none;
+  
+  &:hover, &:focus, &:active {
+    box-shadow: 0 0 10px var(--color-glow-blue), 0 0 20px var(--color-glow-purple);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-gradient-purple-pink {
+  background: var(--gradient-purple-pink);
+  color: var(--color-text-primary);
+  border: none;
+  
+  &:hover, &:focus, &:active {
+    box-shadow: 0 0 10px var(--color-glow-purple), 0 0 20px var(--color-glow-pink);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-gradient-pink-blue {
+  background: var(--gradient-pink-blue);
+  color: var(--color-text-primary);
+  border: none;
+  
+  &:hover, &:focus, &:active {
+    box-shadow: 0 0 10px var(--color-glow-pink), 0 0 20px var(--color-glow-blue);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-gradient-green-blue {
+  background: var(--gradient-green-blue);
+  color: var(--color-text-primary);
+  border: none;
+  
+  &:hover, &:focus, &:active {
+    box-shadow: 0 0 10px var(--color-glow-green), 0 0 20px var(--color-glow-blue);
+    transform: translateY(-2px);
+  }
+}
+
+// Button with icon only
+.btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 50%;
+  
+  &.btn-sm {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  &.btn-lg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+// Button with glitch effect
+.btn-glitch {
+  position: relative;
+  
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  &:hover {
+    animation: glitch-effect 0.3s linear forwards;
+    
+    &::after {
+      animation: glitch-text 0.3s linear forwards;
+    }
+  }
+  
+  @keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+  }
+  
+  @keyframes glitch-text {
+    0% { opacity: 0.1; transform: translate(0); }
+    20% { opacity: 0.5; transform: translate(3px, -3px); }
+    40% { opacity: 0.5; transform: translate(3px, 3px); }
+    60% { opacity: 0.5; transform: translate(-3px, -3px); }
+    80% { opacity: 0.5; transform: translate(-3px, 3px); }
+    100% { opacity: 0; transform: translate(0); }
+  }
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  
+  .btn {
+    border-radius: 0;
+    
+    &:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    
+    &:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+  }
+}
+
+// Button with loading spinner
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}

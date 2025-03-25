@@ -49,6 +49,9 @@
  * MMenu................Specific styles for mmenu addon.
  *
 */
+// Import cyberpunk utilities
+@import '05-utilities/cyberpunk-mixins';
+@import '05-utilities/cyberpunk-animations';
 
 @import './01-settings/tailwind';
 @import './01-settings/fonts';

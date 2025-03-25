@@ -1,0 +1,152 @@
+// Cyberpunk Neon Theme - Global SCSS Variables
+
+// Base color variables
+$main-color: var(--color-neon-blue);
+$infinte-color: var(--color-text-secondary);
+$main-text-color: var(--color-text-primary);
+
+:root {
+  // Dark Backgrounds
+  --color-dark-bg-primary: #0A0A14;
+  --color-dark-bg-secondary: #121225;
+  --color-dark-bg-tertiary: #1A1A2E;
+  --color-dark-surface: #252542;
+
+  // Neon Accent Colors
+  --color-neon-blue: #00F0FF;
+  --color-neon-purple: #BF00FF;
+  --color-neon-pink: #FF00B8;
+  --color-neon-green: #00FF9E;
+
+  // Glow Colors
+  --color-glow-blue: rgba(0, 240, 255, 0.7);
+  --color-glow-purple: rgba(191, 0, 255, 0.7);
+  --color-glow-pink: rgba(255, 0, 184, 0.7);
+  --color-glow-green: rgba(0, 255, 158, 0.7);
+
+  // Text Colors
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B3CC;
+  --color-text-muted: #6E6E93;
+
+  // Gradients
+  --gradient-blue-purple: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-purple));
+  --gradient-purple-pink: linear-gradient(135deg, var(--color-neon-purple), var(--color-neon-pink));
+  --gradient-pink-blue: linear-gradient(135deg, var(--color-neon-pink), var(--color-neon-blue));
+  --gradient-green-blue: linear-gradient(135deg, var(--color-neon-green), var(--color-neon-blue));
+  --gradient-dark: linear-gradient(135deg, var(--color-dark-bg-primary), var(--color-dark-bg-tertiary));
+  --gradient-dark-surface: linear-gradient(135deg, var(--color-dark-surface), var(--color-dark-bg-tertiary));
+
+  // UI Element Colors
+  --color-button-primary: var(--color-neon-blue);
+  --color-button-secondary: var(--color-neon-purple);
+  --color-button-danger: var(--color-neon-pink);
+  --color-button-success: var(--color-neon-green);
+
+  // Borders
+  --color-border-primary: var(--color-neon-blue);
+  --color-border-secondary: var(--color-neon-purple);
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-border-dark: rgba(0, 0, 0, 0.3);
+
+  // Shadows
+  --shadow-neon-blue: 0 0 10px var(--color-glow-blue);
+  --shadow-neon-purple: 0 0 10px var(--color-glow-purple);
+  --shadow-neon-pink: 0 0 10px var(--color-glow-pink);
+  --shadow-neon-green: 0 0 10px var(--color-glow-green);
+  --shadow-box: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+  // Status Colors
+  --color-success: var(--color-neon-green);
+  --color-warning: #FFCC00;
+  --color-danger: var(--color-neon-pink);
+  --color-info: var(--color-neon-blue);
+
+  /* Salla Theme Variables - Remapped for Cyberpunk */
+  --infinte-color: var(--color-text-secondary);
+  --main-text-color: var(--color-text-primary);
+  --main-text-color-dark: var(--color-text-primary);
+  
+  /* current */
+  --color-primary: var(--color-neon-blue);
+  --color-primary-d: var(--color-dark-bg-primary);
+  --color-primary-l: var(--color-neon-purple);
+  --color-primary-reverse: var(--color-neon-pink);
+  --color-text: var(--color-text-secondary);
+  --bg-gray: var(--color-dark-bg-secondary);
+  --color-grey: var(--color-dark-bg-tertiary);
+  --color-light-grey: var(--color-dark-surface);
+  
+  /* font-size */
+  --font-sm: 0.8685714286rem;
+  
+  /* font-family */
+  --font-main: "DINNextLTArabic";
+  
+  /* plugins */
+  --mm-ocd-width: calc(100% - 51px);
+}
+
+/* Cyberpunk-specific utility classes */
+.neon-text-blue {
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 5px var(--color-glow-blue);
+}
+
+.neon-text-purple {
+  color: var(--color-neon-purple);
+  text-shadow: 0 0 5px var(--color-glow-purple);
+}
+
+.neon-text-pink {
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 5px var(--color-glow-pink);
+}
+
+.neon-text-green {
+  color: var(--color-neon-green);
+  text-shadow: 0 0 5px var(--color-glow-green);
+}
+
+.neon-border {
+  border: 1px solid transparent;
+  border-image: var(--gradient-blue-purple);
+  border-image-slice: 1;
+  box-shadow: var(--shadow-neon-blue);
+}
+
+.neon-glow {
+  box-shadow: var(--shadow-neon-blue);
+  transition: box-shadow 0.3s ease;
+}
+
+.neon-glow:hover {
+  box-shadow: 0 0 15px var(--color-glow-blue), 0 0 30px var(--color-glow-blue);
+}
+
+.cyberpunk-card {
+  background-color: var(--color-dark-bg-tertiary);
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  box-shadow: var(--shadow-box);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyberpunk-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-blue-purple);
+}
+
+.cyberpunk-gradient-text {
+  background: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
